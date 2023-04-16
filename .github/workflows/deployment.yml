@@ -73,4 +73,4 @@ jobs:
           host: ${{ secrets.HOST_IP}}
           key: ${{ secrets.PRIVATE_KEY }}
           script_stop: true
-          script: ${{ format('cd /home/{0} && chmod +x deploy.sh && ./deploy.sh', secrets.USER)
+          script: ${{ format('cd /home/{0} && chmod +x deploy.sh && ./deploy.sh', secrets.USER) }}
