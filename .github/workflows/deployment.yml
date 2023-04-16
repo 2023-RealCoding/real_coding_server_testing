@@ -10,7 +10,7 @@ name: Deployment
 on:
   workflow_dispatch:
   push:
-    branches: [ "main" ]
+    branches: [ "feature/deploy" ]
 
 permissions:
   contents: read
@@ -46,10 +46,10 @@ jobs:
       - name: Send jar to remote server
         uses: appleboy/scp-action@master
         with:
-          host: {나의 public ip}
-          username: {나의 userName}
+          host: ${{ secrets.HOST_IP}}
+          username: ${{ USER }}
           source: "real_coding_server-0.0.1-SNAPSHOT.jar"
-          target: "/home/{나의 userName}"
+          target: "/home/${{USER}}"
           key: ${{ secrets.PRIVATE_KEY }}
   
   run-app:
@@ -61,16 +61,16 @@ jobs:
       - name: Move deploy.sh
         uses: appleboy/scp-action@master
         with:
-          host: {나의 public ip}
-          username: {나의 userName}
+          host: ${{ secrets.HOST_IP}}
+          username: ${{ USER }}
           source: "deploy.sh"
-          target: "/home/{나의 userName}"
+          target: "/home/${{ USER }}"
           key: ${{ secrets.PRIVATE_KEY }}
       - name: Execute script
         uses: appleboy/ssh-action@master
         with:
-          username: {나의 userName}
-          host: {나의 public ip}
+          username: ${{ USER }}
+          host: ${{ secrets.HOST_IP}}
           key: ${{ secrets.PRIVATE_KEY }}
           script_stop: true
-          script: cd /home/{나의 userName} && chmod +x deploy.sh && ./deploy.sh
+          script: cd /home/${{ USER }} && chmod +x deploy.sh && ./deploy.sh
