@@ -18,6 +18,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout Code
+      uses: actions/checkout@v1
+    - name: Build and Run Tests
+      run: # execute your tests generating test results
+    - name: Publish Test Report
+      uses: mikepenz/action-junit-report@v3
+      if: success() || failure() # always run even if the previous step fails
+      with:
+        report_paths: '**/build/test-results/test/TEST-*.xml'
+
+    - run: echo "The head of this PR starts with 'deploy'
     - name: Checkout
       uses: actions/checkout@v3
     - name: Set up JDK 17
@@ -25,28 +36,16 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+        cache: gradle
     - name: Build with Gradle
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
         arguments: build
+    - name: Grant execute permission for gralew
+      run: chmod +x gradlew
+    - name: Build with test
+      run: ./gradlew test
     - uses: actions/upload-artifact@v3
       with:
         name: jar
         path: build/libs
-        
-  send-jar:
-    needs: build
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Download jar
-        uses: actions/download-artifact@v3
-        with:
-          name: jar
-      - name: Send jar to remote server
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.HOST_IP}}
-          username: ${{ secrets.USER }}
-          source: "real_coding_server-0.0.1-SNAPSHOT.jar"
-          target: ${{ format('/home/{0}', secrets.USER) }}
-          key: ${{ secrets.PRIVATE_KEY }}
