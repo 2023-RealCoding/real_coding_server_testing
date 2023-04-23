@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - run: echo "The head of this PR starts with 'deploy'
+    - run: echo "The head of this PR starts with 'deploy'"
     - name: Checkout
       uses: actions/checkout@v3
     - name: Set up JDK 17
