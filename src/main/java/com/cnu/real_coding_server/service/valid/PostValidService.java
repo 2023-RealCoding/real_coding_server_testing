@@ -16,4 +16,24 @@ public class PostValidService {
         }
         return false;
     }
+
+    public boolean isSlangIncludeInTitle(List<String> slangList,
+                                         String title) {
+        for(String slang: slangList) {
+            if(title.contains(slang)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isSlangIncludeInContent(List<String> slangList,
+                                         String content) {
+        for(String slang: slangList) {
+            if(content.contains(slang)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
