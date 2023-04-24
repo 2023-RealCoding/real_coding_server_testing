@@ -32,7 +32,7 @@ public class PostValidServiceTest {
     }
 
 
-    @DisplayName("post 제목애 비속어가 있나 테스트")
+    @DisplayName("post 제목에 비속어가 있나 테스트")
     @Test
     void testValidPostTitleIncludeSlang() {
         // given 시나리오
