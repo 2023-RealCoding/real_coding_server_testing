@@ -40,7 +40,7 @@ public class PostValidServiceTest {
         String testContent = "비속어가 섞인 욕";
         List<String> slangList = List.of("비속어", "비속어2");
 
-        boolean validPost = postValidService.isSlangIncludeTitle(slangList, testTitle);
+        boolean validPost = postValidService.isSlangInclude(slangList, testTitle, testContent);
         // then 검증
         assertThat(validPost).isEqualTo(true);
     }
@@ -53,7 +53,7 @@ public class PostValidServiceTest {
         String testContent = "비속어가 섞인 욕";
         List<String> slangList = List.of("비속어", "비속어2");
 
-        boolean validPost = postValidService.isSlangIncludeContent(slangList, testContent);
+        boolean validPost = postValidService.isSlangInclude(slangList, testTitle, testContent);
         // then 검증
         assertThat(validPost).isEqualTo(true);
     }

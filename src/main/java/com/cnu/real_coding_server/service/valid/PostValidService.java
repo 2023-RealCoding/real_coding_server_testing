@@ -17,24 +17,24 @@ public class PostValidService {
         return false;
     }
 
-    public boolean isSlangIncludeTitle(List<String> slangList,
-                                  String title) {
-        for (String slang : slangList) {
-            if(title.contains(slang)
-                    ) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean isSlangIncludeContent(List<String> slangList,
-                                         String postContent) {
-        for (String slang : slangList) {
-            if( postContent.contains(slang)) {
-                return true;
-            }
-        }
-        return false;
-    }
+//    public boolean isSlangIncludeTitle(List<String> slangList,
+//                                  String title) {
+//        for (String slang : slangList) {
+//            if(title.contains(slang)
+//                    ) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+//
+//    public boolean isSlangIncludeContent(List<String> slangList,
+//                                         String postContent) {
+//        for (String slang : slangList) {
+//            if( postContent.contains(slang)) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 }
