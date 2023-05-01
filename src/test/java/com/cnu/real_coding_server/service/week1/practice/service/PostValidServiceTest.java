@@ -22,7 +22,7 @@ public class PostValidServiceTest {
 
     @Autowired
     ObjectMapper mapper;
-    
+
     @DisplayName("post 제목에 비속어가 있나 테스트")
     @Test
     void testValidPostIncludeSlangInTitle() {
