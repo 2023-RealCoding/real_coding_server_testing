@@ -10,7 +10,7 @@ name: DeploymentHomework
 on:
   workflow_dispatch:
   pull_request:
-    branches: [ "homework/testing" ]
+    branches: [ "main" ]
 
 permissions:
   contents: read
