@@ -22,7 +22,10 @@ public class PostService {
 
     public Post createPost(PostRequest postRequest) {
 
-        if (postValidService.isSlangInclude(slangList, postRequest.getTitle(), postRequest.getContents())) {
+        if (postValidService.isSlangTitleInclude(slangList, postRequest.getTitle())) {
+            throw new SlangBadRequestException();
+        }
+        if (postValidService.isSlangContentInclude(slangList,postRequest.getContents())) {
             throw new SlangBadRequestException();
         }
         log.info("정상 저장 확인");
@@ -38,7 +41,10 @@ public class PostService {
     }
 
     public Optional<Post> updatePost(Integer postId, PostRequest postRequest) {
-        if (postValidService.isSlangInclude(slangList, postRequest.getTitle(), postRequest.getContents())) {
+        if (postValidService.isSlangContentInclude(slangList,postRequest.getContents())) {
+            throw new SlangBadRequestException();
+        }
+        if (postValidService.isSlangTitleInclude(slangList, postRequest.getTitle())) {
             throw new SlangBadRequestException();
         }
         return postRepository.findById(postId)
