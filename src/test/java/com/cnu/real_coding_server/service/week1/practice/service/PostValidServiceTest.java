@@ -57,4 +57,5 @@ public class PostValidServiceTest {
         // then 검증
         assertThat(validPost).isEqualTo(true);
     }
+    
 }
