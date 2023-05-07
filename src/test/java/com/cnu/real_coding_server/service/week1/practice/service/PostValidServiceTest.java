@@ -58,6 +58,7 @@ public class PostValidServiceTest {
 
 }
 
+
 /*
 명세란 무엇일까?
 - 소프트웨어 개발 프로세스의 시작 요구사항을 분석하고 정의하는 단계에서 작성되는 최종 산출물
