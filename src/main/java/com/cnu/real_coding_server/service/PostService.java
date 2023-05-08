@@ -4,6 +4,7 @@ import com.cnu.real_coding_server.entity.Post;
 import com.cnu.real_coding_server.error.SlangBadRequestException;
 import com.cnu.real_coding_server.model.request.PostRequest;
 import com.cnu.real_coding_server.repository.PostRepository;
+
 import com.cnu.real_coding_server.service.valid.PostValidService;
 import java.util.List;
 import java.util.Optional;
@@ -32,7 +33,6 @@ public class PostService {
     public List<Post> getPosts() {
         return postRepository.findAll();
     }
-
     public Optional<Post> getPost(Integer postId) {
         return postRepository.findById(postId);
     }
@@ -49,7 +49,6 @@ public class PostService {
                     return postRepository.save(post);
                 });
     }
-
     public void deletePost(Integer postId) {
         postRepository.findById(postId)
                 .ifPresent(postRepository::delete);
