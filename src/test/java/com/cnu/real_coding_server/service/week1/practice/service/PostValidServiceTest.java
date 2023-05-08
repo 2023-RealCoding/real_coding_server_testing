@@ -1,6 +1,7 @@
 package com.cnu.real_coding_server.service.week1.practice.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 import com.cnu.real_coding_server.service.valid.PostValidService;
 import java.util.List;
@@ -29,5 +30,40 @@ public class PostValidServiceTest {
         boolean validPost = postValidService.isSlangInclude(slangList, testTitle, testContent);
         // then 검증
         assertThat(validPost).isEqualTo(true);
+    }
+
+    @DisplayName("post 제목에 비속어가 있나 테스트")
+    @Test
+    void testValidPostTitleIncludeSlang() {
+        // given 시나리오
+        String testSlangTitle = "비속어가 섞인 제목";
+        String testNoneSlangContent = "욕 아님";
+        List<String> slangList = List.of("비속어", "비속어2");
+
+        boolean validSlangPostTitle = postValidService.isSlangInclude(slangList, testSlangTitle, testNoneSlangContent);
+
+
+        // then 검증
+        assertThat(validSlangPostTitle).isEqualTo(true);
+    }
+
+    @DisplayName("post 내용에 비속어가 있나 테스트")
+    @Test
+    void testValidPostContentIncludeSlang() {
+        // given 시나리오
+        String testNoneSlangTitle = "욕 아닌 제목";
+        String testSlangContent = "비속어가 있는 내용";
+        String testNoneSlangContent = "욕 아닌 내용";
+        List<String> slangList = List.of("비속어", "비속어2");
+
+        boolean validSlangPostContent = postValidService.isSlangInclude(slangList, testNoneSlangTitle, testSlangContent);
+        boolean validNoneSlangPostContent = postValidService.isSlangInclude(slangList, testNoneSlangTitle, testNoneSlangContent);
+
+
+        // then 검증
+        assertAll("verify object",
+                () -> assertThat(validSlangPostContent).isEqualTo(true),
+                () -> assertThat(validNoneSlangPostContent).isEqualTo(false)
+        );
     }
 }
