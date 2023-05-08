@@ -37,7 +37,7 @@ public class PostServiceTest {
     }
 
     @DisplayName("글 저장 테스트")
-    @Transactional
+//    @Transactional
     @Test
     void createPost() throws JsonProcessingException {
         PostRequest postRequest = PostFixture.getNormalPostRequest();
