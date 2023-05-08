@@ -33,6 +33,13 @@ dependencies {
 	implementation 'com.h2database:h2'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	//gradle 이 버전 4 라면
+	implementation 'org.projectlombok:lombok'
+
+	//gradle 이 버전 5 라면
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
 }
 
 tasks.named('test') {
