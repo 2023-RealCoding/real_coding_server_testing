@@ -4,13 +4,11 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PostValidService {
+public class ContentValidService {
     public boolean isSlangInclude(List<String> slangList,
-                                  String title,
                                   String postContent) {
         for (String slang : slangList) {
-            if(title.contains(slang)
-                    || postContent.contains(slang)) {
+            if(postContent.contains(slang)) {
                 return true;
             }
         }
