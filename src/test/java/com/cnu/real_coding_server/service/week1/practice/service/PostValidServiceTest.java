@@ -23,7 +23,7 @@ public class PostValidServiceTest {
     void testValidPostIncludeSlangTitle() {
         // given 시나리오
         String testTitle = "비속어가 섞인 제목";
-        List<String> slangList = List.of("비속", "비속어2");
+        List<String> slangList = List.of("비속어", "비속어2");
 
         boolean validPost = postValidService.isSlangIncludeinTitle(slangList, testTitle);
         // then 검증
