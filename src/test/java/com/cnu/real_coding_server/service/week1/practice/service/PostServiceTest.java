@@ -49,7 +49,6 @@ public class PostServiceTest {
                 () -> assertThat(post.getTag()).isEqualTo(postRequest.getTag())
         );
     }
-
     @DisplayName("비속어 글 저장 테스트")
     @Transactional
     @Test
