@@ -29,5 +29,6 @@ public class PostValidServiceTest {
         boolean validPost = postValidService.isSlangInclude(slangList, testTitle, testContent);
         // then 검증
         assertThat(validPost).isEqualTo(true);
+        
     }
 }
