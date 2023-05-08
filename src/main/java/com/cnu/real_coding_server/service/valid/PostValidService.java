@@ -16,4 +16,20 @@ public class PostValidService {
         }
         return false;
     }
+    public boolean isSlangTitle(String slang,
+                                String title) {
+        if(title.contains(slang)) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isSlangContent(String slang,
+                                  String postContent) {
+        if(postContent.contains(slang)) {
+            return true;
+        }
+
+        return false;
+    }
 }
