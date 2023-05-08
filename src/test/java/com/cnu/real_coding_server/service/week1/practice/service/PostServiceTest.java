@@ -96,4 +96,6 @@ public class PostServiceTest {
                 () -> assertThat(updatedPost.getTag()).isEqualTo(updatedTag)
         );
     }
+
+
 }
