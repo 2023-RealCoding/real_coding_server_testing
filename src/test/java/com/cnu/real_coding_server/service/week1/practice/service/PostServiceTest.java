@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.cnu.real_coding_server.entity.Post;
+import com.cnu.real_coding_server.error.SlangBadRequestException;
 import com.cnu.real_coding_server.model.request.PostRequest;
 import com.cnu.real_coding_server.model.type.Tag;
 import com.cnu.real_coding_server.service.PostService;
@@ -36,7 +37,7 @@ public class PostServiceTest {
     }
 
     @DisplayName("글 저장 테스트")
-//    @Transactional
+    @Transactional
     @Test
     void createPost() throws JsonProcessingException {
         PostRequest postRequest = PostFixture.getNormalPostRequest();
@@ -49,12 +50,8 @@ public class PostServiceTest {
         );
     }
 
-<<<<<<< HEAD
-    @DisplayName("비속어 제목에 포함된 저장/업데이트 테스트")
-=======
     @DisplayName("비속어 글 저장 테스트")
     @Transactional
->>>>>>> faedb5f03fbcd6043b00b4210763c7d256038fc4
     @Test
     void createPostWithSlang() {
         PostRequest postRequest = PostFixture.getSlangPostRequest();
@@ -82,6 +79,4 @@ public class PostServiceTest {
                 () -> assertThat(updatedPost.getTag()).isEqualTo(updatedPostRequest.getTag())
         );
     }
-
-
 }
