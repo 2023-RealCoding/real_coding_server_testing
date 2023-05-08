@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class PostService {
-
     private final PostRepository postRepository;
     private static final List<String> slangList = List.of("비속어1", "비속어2");
     private final PostValidService postValidService;
@@ -28,7 +27,6 @@ public class PostService {
         log.info("정상 저장 확인");
         return postRepository.save(postRequest.toEntity());
     }
-
     public List<Post> getPosts() {
         return postRepository.findAll();
     }
@@ -36,7 +34,6 @@ public class PostService {
     public Optional<Post> getPost(Integer postId) {
         return postRepository.findById(postId);
     }
-
     public Optional<Post> updatePost(Integer postId, PostRequest postRequest) {
         if (postValidService.isSlangInclude(slangList, postRequest.getTitle(), postRequest.getContents())) {
             throw new SlangBadRequestException();

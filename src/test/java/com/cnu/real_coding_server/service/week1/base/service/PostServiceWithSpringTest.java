@@ -17,7 +17,6 @@ import org.springframework.test.context.ActiveProfiles;
 public class PostServiceWithSpringTest {
     @Autowired
     PostService postService;
-
     @DisplayName("테스트 코드에서 Spring Component 실행해보기")
     @Test
     void testDoCodeRun() {

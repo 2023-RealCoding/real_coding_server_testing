@@ -29,7 +29,6 @@ public class PostServiceWithSpringWithMockTest {
     void init() {
 
     }
-
     @DisplayName("테스트 코드에서 Spring Component 실행해보기")
     @Test
     void testDoCodeRun() {
@@ -37,7 +36,6 @@ public class PostServiceWithSpringWithMockTest {
         String title = "만나서";
         String contents = "반가워요";
         Tag tag = Tag.SPRINGBOOT;
-
         Post testPostData = Post.builder()
                 .title(title)
                 .contents(contents)
