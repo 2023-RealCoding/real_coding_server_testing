@@ -17,30 +17,27 @@ public class PostValidServiceTest {
     @Autowired
     PostValidService postValidService;
 
-
-    @DisplayName("post 제목에 비속어가 있나 테스트")
+    @DisplayName("post title 제목에 비속어가 있나 테스트")
     @Test
-    void testValidTitleIncludeSlang() {
+    void testValidPostIncludeTitle() {
         // given 시나리오
         String testTitle = "비속어가 섞인 제목";
-        String testContent = "비속어가 섞인 욕";
         List<String> slangList = List.of("비속어", "비속어2");
-        // when 코드 실행
-        boolean validPost = postValidService.isSlangInclude(slangList, testTitle, testContent);
-        // then 실행 결과 검증
+
+        boolean validPost = postValidService.isSlangInclude(slangList, testTitle, "");
+        // then 검증
         assertThat(validPost).isEqualTo(true);
     }
 
-    @DisplayName("post 본문에 비속어가 있나 테스트")
+    @DisplayName("post content 본문에 비속어가 있나 테스트")
     @Test
-    void testValidMainTextIncludeSlang() {
+    void testValidPostIncludeContent() {
         // given 시나리오
-        String testMainText = "비속어가 섞인 본문";
         String testContent = "비속어가 섞인 욕";
         List<String> slangList = List.of("비속어", "비속어2");
-        // when 코드 실행
-        boolean validPost = postValidService.isSlangInclude(slangList, testMainText, testContent);
-        // then 실행 결과 검증
+
+        boolean validPost = postValidService.isSlangInclude(slangList, "", testContent);
+        // then 검증
         assertThat(validPost).isEqualTo(true);
     }
 }
