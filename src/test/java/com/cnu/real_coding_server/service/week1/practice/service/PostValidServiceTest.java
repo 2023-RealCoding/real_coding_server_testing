@@ -30,4 +30,28 @@ public class PostValidServiceTest {
         // then 검증
         assertThat(validPost).isEqualTo(true);
     }
+
+    @DisplayName("post 제목에 비속어가 있나 테스트")
+    @Test
+    void testValidTitleIncludeSlang() {
+        // given 시나리오
+        String testTitle = "비속어가 섞인 제목";
+        List<String> slangList = List.of("비속어", "비속어2");
+
+        boolean validPost = postValidService.isTitleIncludeSlang(slangList, testTitle);
+        // then 검증
+        assertThat(validPost).isEqualTo(true);
+    }
+
+    @DisplayName("post 본문에 비속어가 있나 테스트")
+    @Test
+    void testValidContentIncludeSlang() {
+        // given 시나리오
+        String testContent = "비속어가 섞인 욕";
+        List<String> slangList = List.of("비속어", "비속어2");
+
+        boolean validPost = postValidService.isContentIncludeSlang(slangList, testContent);
+        // then 검증
+        assertThat(validPost).isEqualTo(true);
+    }
 }
