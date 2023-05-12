@@ -31,7 +31,7 @@ public class PostValidServiceTest {
         assertThat(validPost).isEqualTo(true);
     }
 
-    @DisplayName("post 제목에 비속어가 있나 테스트")
+    @DisplayName("post 본문에 비속어가 있나 테스트")
     @Test
     void testValidPostIncludeSlang_content() {
         // given 시나리오
