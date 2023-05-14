@@ -22,7 +22,7 @@ public class PostValidServiceTest {
     void testValidPostIncludeSlangTitle() {
 
         String testTitle = "비속어가 섞인 제목";
-        List<String> slangList = List.of("비속어", "비속어같지만일만어");
+        List<String> slangList = List.of("비속어", "비속어1");
 
     }
 
@@ -30,7 +30,7 @@ public class PostValidServiceTest {
     @Test
     void testValidPostIncludeSlangContent() {
         String testContent = "비속어가 섞인 제목";
-        List<String> slangList = List.of("비속어", "비속어같지만일만어");
+        List<String> slangList = List.of("비속어", "비속어1");
 
     }
 }
