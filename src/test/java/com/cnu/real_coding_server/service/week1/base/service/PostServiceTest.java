@@ -21,4 +21,14 @@ class PostServiceTest {
         System.out.println("테스트 코드 실행!");
     }
 
+    @Description("프로젝트와 연관없이 독립적으로 실행")
+    @DisplayName("테스트 코드 실행해보기")
+    @Test
+    void testDebugging() {
+        for (int i = 0; i < 10; i++) {
+            if (i == 5) System.out.println("hihi");
+            System.out.println("hi");
+        }
+    }
+
 }
